@@ -1,10 +1,10 @@
 select ad_date,
 	   campaign_id,
-	   sum(spend) 										as amt_all_spend,			--загал сума витрат
-	   sum(impressions) 								as cnt_impressions, 		--кіл-ть показів
-	   sum(clicks) 										as cnt_clicks, 				--кіл-ть кліків
-	   sum(value)										as amt_value, 				--загал дохід конверсій
-	   sum(spend)::numeric /sum(clicks) 				as CPC,
+	   sum(spend) 						as amt_all_spend,			--загал сума витрат
+	   sum(impressions) 					as cnt_impressions, 		--кіл-ть показів
+	   sum(clicks) 						as cnt_clicks, 				--кіл-ть кліків
+	   sum(value)						as amt_value, 				--загал дохід конверсій
+	   sum(spend)::numeric /sum(clicks) 			as CPC,
 	   (sum(spend)::numeric  /sum(impressions))*1000 	as CPM, 
 	   (sum(clicks)::numeric / sum(impressions))*100	as CTR,   
 	   (sum(value)-sum(spend)) /sum(spend)::numeric 		as ROMI
